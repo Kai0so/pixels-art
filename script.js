@@ -4,8 +4,8 @@ window.onload = function () {
   const thirdColor = document.getElementsByClassName('color')[2];
   const fourthColor = document.getElementsByClassName('color')[3];
 
-  firstColor.style.backgroundColor = 'red';
-  secondColor.style.backgroundColor = 'green';
+  firstColor.style.backgroundColor = 'black';
+  secondColor.style.backgroundColor = 'red';
   thirdColor.style.backgroundColor = 'blue';
   fourthColor.style.backgroundColor = 'yellow';
 };
