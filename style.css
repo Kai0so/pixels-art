@@ -1,7 +1,29 @@
+body {
+  text-align: center;
+}
+
 .color {
   display: inline-block;
   border-style: solid;
   border-color: black;
   border-width: 1px;
   padding: 30px;
+}
+
+#pixel-board {
+  display: inline-block;
+  line-height: 0;
+  width: 310px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.pixel {
+  display: inline-block;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding: 30px;
+  background-color: white;
 }
