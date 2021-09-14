@@ -22,3 +22,5 @@ for (let j = 0; j < 5; j += 1) {
     pixelBoardRows[k].appendChild(newCell).className = 'pixel';
   }
 }
+
+firstColor.classList.add("selected");
