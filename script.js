@@ -23,4 +23,21 @@ for (let j = 0; j < 5; j += 1) {
   }
 }
 
-firstColor.classList.add("selected");
+firstColor.classList.add('selected');
+
+function selectColor(e) {
+  let colorList = document.querySelectorAll('.color');
+  for (let i = 0; i < colorList.length; i += 1) {
+    colorList[i].className = 'color';
+    e.target.className = "color selected";
+  }
+}
+
+function pixelListener() {
+  const colorSelector = document.querySelectorAll('.color');
+  for (let i = 0; i < colorSelector.length; i += 1) {
+    colorSelector[i].addEventListener('click', selectColor);
+  }
+}
+
+pixelListener();
