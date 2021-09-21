@@ -8,6 +8,8 @@ secondColor.style.backgroundColor = 'red';
 thirdColor.style.backgroundColor = 'blue';
 fourthColor.style.backgroundColor = 'yellow';
 
+firstColor.classList.add('selected');
+
 const pixelBoard = document.getElementById('pixel-board');
 const pixelBoardRows = document.getElementsByClassName('pixel-board-rows');
 
@@ -23,21 +25,36 @@ for (let j = 0; j < 5; j += 1) {
   }
 }
 
-firstColor.classList.add('selected');
-
 function selectColor(e) {
-  let colorList = document.querySelectorAll('.color');
+  const colorList = document.querySelectorAll('.color');
   for (let i = 0; i < colorList.length; i += 1) {
     colorList[i].className = 'color';
-    e.target.className = "color selected";
+    e.target.className = 'color selected';
   }
 }
 
-function pixelListener() {
+function paletteListener() {
   const colorSelector = document.querySelectorAll('.color');
   for (let i = 0; i < colorSelector.length; i += 1) {
     colorSelector[i].addEventListener('click', selectColor);
   }
 }
 
-pixelListener();
+function paintPixel(e) {
+  const colorSelected = document.querySelector('.selected');
+  const captureColorBackground = window.getComputedStyle(colorSelected, null);
+  const colorBackgroundValue = captureColorBackground.getPropertyValue('background-color');
+  e.target.style.backgroundColor = colorBackgroundValue;
+}
+
+function pixelListener() {
+  const pixelSelector = document.querySelectorAll('.pixel');
+  for (let i = 0; i < pixelSelector.length; i += 1) {
+    pixelSelector[i].addEventListener('click', paintPixel);
+  }
+}
+
+window.onload = () => {
+  paletteListener();
+  pixelListener();
+};
