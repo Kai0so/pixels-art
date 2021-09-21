@@ -2,6 +2,9 @@ const firstColor = document.getElementsByClassName('color')[0];
 const secondColor = document.getElementsByClassName('color')[1];
 const thirdColor = document.getElementsByClassName('color')[2];
 const fourthColor = document.getElementsByClassName('color')[3];
+const pixelBoard = document.getElementById('pixel-board');
+const pixelBoardRows = document.getElementsByClassName('pixel-board-rows');
+const clearButton = document.querySelector('#clear-board');
 
 firstColor.style.backgroundColor = 'black';
 secondColor.style.backgroundColor = 'red';
@@ -9,9 +12,6 @@ thirdColor.style.backgroundColor = 'blue';
 fourthColor.style.backgroundColor = 'yellow';
 
 firstColor.classList.add('selected');
-
-const pixelBoard = document.getElementById('pixel-board');
-const pixelBoardRows = document.getElementsByClassName('pixel-board-rows');
 
 for (let i = 0; i < 5; i += 1) {
   const row = document.createElement('div');
@@ -54,7 +54,15 @@ function pixelListener() {
   }
 }
 
+function clearBoard() {
+  const pixelSelector = document.querySelectorAll('.pixel');
+  for (let i = 0; i < pixelSelector.length; i += 1) {
+    pixelSelector[i].style.backgroundColor = '';
+  }
+}
+
 window.onload = () => {
   paletteListener();
   pixelListener();
+  clearButton.addEventListener('click', clearBoard);
 };

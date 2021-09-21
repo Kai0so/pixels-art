@@ -28,3 +28,8 @@ body {
   width: 40px;
   background-color: white;
 }
+
+#clear-board {
+  border: 2px solid black;
+  margin: 10px 0;
+}
